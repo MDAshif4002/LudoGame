@@ -1,0 +1,12 @@
+.card-header{
+    height: 80px;
+    background-color: #FF00FF;
+}
+.card-header img{
+    border-radius: 15px 15px 0px 0px;
+}
+.paymenttitle{
+    margin-left: 35px;
+    font-size: 10px;
+    margin-top: -20px;
+}

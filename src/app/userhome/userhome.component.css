@@ -1,0 +1,93 @@
+.instruction{
+    height: 80px;
+    background-color: #002858;
+    border: 3px solid #0088CC;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+}
+img{
+    border: 2px solid #EAA812;
+    border-radius: 10px;
+}
+.game{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.game p{
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 10px;
+}
+.btn-outline-dark{
+    height: 30px; 
+    line-height: 1; 
+    padding: 5px 12px; 
+    border-width: 1px; 
+    font-size: 14px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer{
+    text-align: center;
+}
+.footer .footerpara{
+    font-size: 22px;
+    font-weight: bold;
+}
+.endfooter {
+    width: 100%; 
+    max-width: 500px; 
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 10px; 
+}
+
+.endfooter img {
+    height: 60px;
+    width: 60px;
+    object-fit: contain; 
+}
+
+.ludoking {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.commission{
+    font-size: 16px;
+    color: #12E2EE;
+}
+.charges{
+    font-size: 14px;
+    color: #912391;
+    margin-top: -15px;
+}
+li{
+    font-size: 16px;
+    font-weight: bold;
+}
+.gameOption{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+@media(max-width:480px){
+    .gameOption{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+}

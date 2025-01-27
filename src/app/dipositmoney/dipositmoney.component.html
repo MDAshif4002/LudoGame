@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="row mt-4">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+          <div class="row">
+              <div class="col-sm-12">
+                  <div class="card shadow">
+                      <div class="card-header text-bg-light text-center">
+                          <h6>Deposit Money</h6>
+                      </div>
+                      <div class="card-body">
+                          <form>
+                              <label for="amount">Amount</label>
+                              <div class="input-group">
+                                  <span class="input-group-text">
+                                      <i class="bi bi-currency-rupee"></i>
+                                  </span>
+                                  <input type="number" id="amount" name="amount" class="form-control" 
+                                         placeholder="Enter Amount" [(ngModel)]="amount" (input)="setAmount($event)">
+                              </div>
+
+                              
+                              <div class="mt-3">
+                                <button type="button" class="btn btn-secondary" (click)="setAmount(50)">&#8377; 50</button>
+                                <button type="button" class="btn btn-secondary" style="margin-left: 4px;" (click)="setAmount(100)">&#8377; 100</button>
+                                <button type="button" class="btn btn-secondary" style="margin-left: 4px;" (click)="setAmount(200)">&#8377; 200</button>
+                                <button type="button" class="btn btn-secondary" style="margin-left: 4px;" (click)="setAmount(500)">&#8377; 500</button>
+                                <button type="button" class="btn btn-secondary" style="margin-left: 4px;" (click)="setAmount(1000)">&#8377; 1000</button>
+                            </div>
+                            
+
+                              <a routerLink="/paymentgateway" class="btn btn-dark w-100 fw-bold mt-3">ADD MONEY</a>
+
+                              <div class="card-header text-center mt-3 card-header1">
+                                  <p>₹2000 से ज्यादा राशि के लिए यहां से Pay करें।</p>
+                                  <a class="btn btn-dark w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#utr">
+                                      Pay Through UTR
+                                  </a>
+                              </div>
+                          </form>
+
+                          <div class="row mt-3">
+                              <div class="col-sm-12">
+                                  <div class="footer">
+                                      <p class="footerpara">Support</p>
+
+                                      <div class="d-flex justify-content-center gap-3 mb-5">
+                                          <a href="#" class="text-decoration-none" target="_blank">
+                                              <i class="bi bi-whatsapp" style="font-size: 2rem; color:#25D366"></i>
+                                          </a>
+                                          <a href="#" class="text-decoration-none" target="_blank">
+                                              <i class="bi bi-instagram" style="font-size: 2rem; color:#E4405F"></i>
+                                          </a>
+                                          <a href="#" class="text-decoration-none" target="_blank">
+                                              <i class="bi bi-telegram" style="font-size: 2rem; color:#0088CC"></i>
+                                          </a>
+                                      </div>
+
+                                      <p class="text-danger text-center fw-bold">Note :</p>
+                                      <p class="text-center">
+                                          ** किसी भी व्यक्ति से भुगतान डलवाने पर आपका पैसा निकालने से भी रोका जा सकता है, 
+                                          इसलिए अपने खाते से ही भुगतान डालें और अपना खाता Withdraw ले
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- UTR Payment Modal -->
+<div class="modal fade" id="utr" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title fs-3" id="exampleModalLabel">Manual Deposit Request</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <p>Amount to Deposit</p>
+              <h2><i class="bi bi-currency-rupee"></i> 2000</h2>
+
+              <p class="mt-5">UPI ID</p>
+              <div class="d-flex justify-content-center align-items-center">
+                  <div class="card-header bg-light text-center p-2 fw-bold upi">
+                      <p>{{ upiId }}</p>
+                  </div>
+                  <button type="button" class="btn btn-dark mb-3 ms-1" (click)="copyUPIID()">Copy</button>
+              </div>
+
+              <div class="card bg-light text-center mt-3 p-2">
+                  कृपया ऊपर दिए गए UPI ID पर राशि का भुगतान करें और नीचे UTR दर्ज करें। फिर अनुरोध सबमिट करें। एडमिन इसे स्वीकृत करेगा।
+              </div>
+
+              <div class="mt-3" style="text-align: left;">
+                  <label for="utr">Enter UTR (Transaction Reference)</label>
+                  <input type="text" id="utr" class="form-control inpututr" placeholder="Enter UTR">
+              </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center gap-1 footerbtn">
+              <button type="button" class="btn btn-outline-secondary mb-4" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-dark mb-4">Submit Request</button>
+          </div>
+      </div>
+  </div>
+</div>

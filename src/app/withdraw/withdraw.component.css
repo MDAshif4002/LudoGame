@@ -1,0 +1,24 @@
+.btn-dark, .btn-secondary{
+    height: 30px; 
+    line-height: 1; 
+    padding: 5px 12px; 
+    border-width: 1px; 
+    font-size: 14px; 
+}
+.btn-outline-dark{
+    height: 30px; 
+    line-height: 1; 
+    padding: 5px 12px; 
+    border-width: 1px; 
+    font-size: 14px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer
+{
+    margin-left: 280px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}

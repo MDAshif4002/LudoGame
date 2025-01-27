@@ -1,0 +1,25 @@
+
+
+.about
+{
+    text-align: center;
+    padding: 2px;
+    font-size: 15px;
+    font-weight: 400;
+}
+.frontpage{
+    width: 100%;
+    margin-top: 10px;
+}
+.frontpage img{
+    width: 100%;
+}
+.warning{
+    margin: 25px;
+    color: blue;
+    text-align: center;
+}
+.footer{
+    position: sticky;
+    bottom: 20px;
+}

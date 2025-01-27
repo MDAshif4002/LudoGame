@@ -1,0 +1,25 @@
+.main{
+    font-size: 22px;
+    font-weight: bold;
+    color: #808080;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+::placeholder{
+    font-weight: bold;
+    color: #808080;
+}
+.img1
+{
+    border: 2px solid #0D6EFD;
+}
+.btn-light{
+    background-color: #28B463;
+    color: #fff;
+}
+.contestent{
+    margin-top: -24px;
+}

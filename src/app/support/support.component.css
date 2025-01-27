@@ -1,0 +1,20 @@
+.image{
+    height: auto;
+}
+.image img{
+    width: 100%;
+}
+.btn-light{
+    background-color: #1EBEA5;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 22px;
+    color: white;
+}
+.btn-danger{
+    background-color: linear-gradient(75deg,#EB7F37,#C21D7B);
+    margin-top: 10px;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 30px;
+}

@@ -1,0 +1,53 @@
+.btn-secondary{
+    height: 30px; 
+    line-height: 1; 
+    padding: 5px 12px; 
+    border-width: 1px; 
+    font-size: 14px; 
+    margin-top: 10px;
+}
+.card-header1{
+    background-color: #CFE2FF;
+    border-radius: 5px;
+    color: #084298;
+    border: none;
+}
+
+.footer{
+    text-align: center;
+}
+.footer .footerpara{
+    font-size: 22px;
+    font-weight: bold;
+}
+.text-center{
+    font-size: 14px;
+    margin-top: -15px;
+}
+.footerbtn{
+    font-size: 18px;
+}
+.modal-body{
+    text-align: center;
+}
+.modal-body p{
+    color: gray;
+    font-size: 20px;
+}
+.modal-body h2{
+    margin-top: -15px;
+    font-weight: bold;
+}
+.upi{
+    height: 60px;
+    line-height: 40px;
+    color: black;
+}
+label{
+    color: gray;
+    font-size: 20px;
+}
+.inpututr{
+    height: 60px;
+    margin-bottom: 40px;
+}

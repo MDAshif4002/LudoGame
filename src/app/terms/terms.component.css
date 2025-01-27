@@ -1,0 +1,9 @@
+.charges{
+    text-align: center;
+}
+.depositamt{
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+
+}

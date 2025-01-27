@@ -1,0 +1,18 @@
+td{
+    font-size: 24px;
+    font-weight: bold;
+}
+.referralcode{
+    background-color: #CFE2FF;
+    color: #0F489C;
+    font-size: 26px;
+    font-weight: 400;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.whatsapp{
+    background-color: #1EBEA5;
+    color: white;
+}

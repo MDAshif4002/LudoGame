@@ -1,0 +1,22 @@
+.btn-primary{
+    height: 40px; 
+    line-height: 1; 
+    padding: 5px 12px; 
+    border-width: 1px; 
+    font-size: 14px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.allbtn{
+    background-color: #17A2B8;
+}
+.hbtn:hover{
+    background-color: gray;
+}
+p{
+    color: gray;
+}
+.time{
+    margin-top: -20px;
+}
