@@ -1,25 +1,12 @@
-// import { CommonModule } from '@angular/common';
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-ludogame',
-//   standalone: true,
-//   imports: [CommonModule],  // Remove RouterLink here
-//   templateUrl: './ludogame.component.html',
-//   styleUrls: ['./ludogame.component.css']
-// })
-// export class LudogameComponent  {
-// }
-
 
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-ludogame',
   standalone:true,
-  imports:[RouterLink,CommonModule],
+  imports:[CommonModule],
   templateUrl: './ludogame.component.html',
   styleUrls: ['./ludogame.component.css']
 })
