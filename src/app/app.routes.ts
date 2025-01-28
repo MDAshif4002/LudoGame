@@ -40,7 +40,7 @@ export const routes: Routes = [
     {path: "legalterm", component: LegaltermComponent},
     {path: "terms", component: TermsComponent},
     {path: "classicludo", component: ClassicludoComponent},
-    {path: "ludogame/:players", component: LudogameComponent},
+    {path: "ludogame", component: LudogameComponent},
     {path: "ludoplayer", component: LudoplayerComponent},
     {path:"snake-and-ladder",component:SnakeAndLadderComponent},
     {path:"classicludodetail",component:ClassicludodetailComponent},
