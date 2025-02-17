@@ -21,6 +21,7 @@ import { LudoplayerComponent } from './ludoplayer/ludoplayer.component';
 import { SnakeAndLadderComponent } from './snake-and-ladder/snake-and-ladder.component';
 import { ClassicludodetailComponent } from './classicludodetail/classicludodetail.component';
 import { SnakeladderdetailComponent } from './snakeladderdetail/snakeladderdetail.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 export const routes: Routes = [
     {path: "", component: HomeComponent},
@@ -45,6 +46,7 @@ export const routes: Routes = [
     {path:"snake-and-ladder",component:SnakeAndLadderComponent},
     {path:"classicludodetail",component:ClassicludodetailComponent},
     {path:"snakeladderdetail",component:SnakeladderdetailComponent},
+    {path:"contactus",component:ContactusComponent},
 ];
 
 @NgModule({

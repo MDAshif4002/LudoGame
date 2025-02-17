@@ -9,38 +9,45 @@
                             <h6>Withdraw Money</h6>
                         </div>
                         <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-dark">Balance : <span style="font-weight: bold;"><i class="bi bi-currency-rupee"></i> 0</span></button>
-                                <!--<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#TransferWallet">
-                                    <i class="bi bi-wallet2"></i> Transfer To Wallet
-                                  </button>-->
-                            </div>
-                            <div class="input-group mt-3">
-                                <span class="input-group-text bg-light"><i class="bi bi-phone"></i></span>
-                                <select class="form-control">
-                                    <option value="">BANK</option>
-                                </select>
-                            </div>
-                            <div class="input-group mt-3">
-                                <span class="input-group-text bg-light"><i class="bi bi-person"></i></span>
-                                <input type="text" class="form-control" placeholder="ACCOUNT HOLDER FULL NAME">
-                            </div>
-                            <div class="input-group mt-3">
-                                <span class="input-group-text bg-light"><i class="bi bi-bank"></i></span>
-                                <input type="text" class="form-control" placeholder="BANK IFSC CODE">
-                            </div>
-                            <div class="input-group mt-3">
-                                <span class="input-group-text bg-light"><i class="bi bi-safe2"></i></span>
-                                <input type="text" class="form-control" placeholder="BANK ACCOUNT NUMBER">
-                            </div>
-                            <div class="input-group mt-3">
-                                <span class="input-group-text bg-light"><i class="bi bi-currency-rupee"></i></span>
-                                <input type="text" class="form-control" placeholder="AMOUNT">
-                            </div>
-                            <p class="text-success mt-3">Minimum Withdraw : ₹ 200</p>
-                            <button class="btn btn-dark w-100">Withdraw Money</button>
-                            <p class="fw-bold text-success">Note:</p>
-                        </div>
+                            <form (ngSubmit)="submitform()">
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-dark">Balance : <span style="font-weight: bold;"><i class="bi bi-currency-rupee"></i> 0</span></button>
+                                    <!--<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#TransferWallet">
+                                        <i class="bi bi-wallet2"></i> Transfer To Wallet
+                                      </button>-->
+                                </div>
+                                <div class="input-group mt-3">
+                                    <span class="input-group-text bg-light"><i class="bi bi-phone"></i></span>
+                                    <select name="bank" class="form-control" [(ngModel)]="regmodel.bank">
+                                        <option value="">BANK</option>
+                                        <option>ICICI</option>
+                                        <option>HDFC</option>
+                                        <option>SBI</option>
+                                        <option>BOB</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mt-3">
+                                    <span class="input-group-text bg-light"><i class="bi bi-person"></i></span>
+                                    <input type="text" name="accountholder" class="form-control" placeholder="ACCOUNT HOLDER FULL NAME" [(ngModel)]="regmodel.accountholder">
+                                </div>
+                                <div class="input-group mt-3">
+                                    <span class="input-group-text bg-light"><i class="bi bi-bank"></i></span>
+                                    <input type="text" name="ifsccode" class="form-control" placeholder="BANK IFSC CODE" [(ngModel)]="regmodel.ifsccode">
+                                </div>
+                                <div class="input-group mt-3">
+                                    <span class="input-group-text bg-light"><i class="bi bi-safe2"></i></span>
+                                    <input type="text" name="accountnumber" class="form-control" placeholder="BANK ACCOUNT NUMBER" [(ngModel)]="regmodel.accountnumber">
+                                </div>
+                                <div class="input-group mt-3">
+                                    <span class="input-group-text bg-light"><i class="bi bi-currency-rupee"></i></span>
+                                    <input type="text" name="amount" class="form-control" placeholder="AMOUNT" [(ngModel)]="regmodel.amount">
+                                </div>
+                                <p class="text-success mt-3">Minimum Withdraw : ₹ 200</p>
+                                <button class="btn btn-dark w-100">Withdraw Money</button>
+                                <p class="fw-bold text-success">Note:</p>
+                
+                            </form>
+                        </div>  
                     </div>
 
                     <div class="card mt-3">

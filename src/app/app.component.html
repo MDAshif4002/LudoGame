@@ -1,5 +1,7 @@
 <div class="container">
-  <!--<div class="row justify-content-center"> 
+
+
+  <div *ngIf="!userlogin" class="row justify-content-center"> 
     <div class="col-sm-4">
         <div class="row">
             <div class="col-sm-12 d-flex align-items-center justify-content-between border p-2">
@@ -23,28 +25,26 @@
             </div>
         </div>
     </div>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarMenuLabel">LudoKing </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-group">
+                <li class="list-group-item"><a routerLink="/home"  class="text-decoration-none fs-5"><i class="bi bi-house"></i> Home</a></li>
+                <li class="list-group-item"><a routerLink="/login"  class="text-decoration-none fs-5"><i class="bi bi-person-circle"></i> Login</a></li>
+                <li class="list-group-item"><a routerLink="/signup"  class="text-decoration-none fs-5"><i class="bi bi-person-plus-fill"></i> Sign Up</a></li>
+                <li class="list-group-item"><a routerLink="/support"  class="text-decoration-none fs-5"><i class="bi bi-headset"></i> Contact Us</a></li>
+                <li class="list-group-item"><a routerLink="/terms"  class="text-decoration-none fs-5"><i class="bi bi-file-earmark-text-fill"></i> Legal Terms</a></li>
+                
+            </ul>
+        </div>
+        </div>
 </div>
-
-
-
-<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
-<div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="sidebarMenuLabel">LudoKing</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-</div>
-<div class="offcanvas-body">
-    <ul class="list-group">
-        <li class="list-group-item"><a routerLink="/home"  class="text-decoration-none fs-5"><i class="bi bi-house"></i> Home</a></li>
-        <li class="list-group-item"><a routerLink="/login"  class="text-decoration-none fs-5"><i class="bi bi-person-circle"></i> Login</a></li>
-        <li class="list-group-item"><a routerLink="/signup"  class="text-decoration-none fs-5"><i class="bi bi-person-plus-fill"></i> Sign Up</a></li>
-        <li class="list-group-item"><a routerLink="/support"  class="text-decoration-none fs-5"><i class="bi bi-headset"></i> Contact Us</a></li>
-        <li class="list-group-item"><a routerLink="/terms"  class="text-decoration-none fs-5"><i class="bi bi-file-earmark-text-fill"></i> Legal Terms</a></li>
-    </ul>
-</div>
-</div>-->
 
 <!--User Menu Start-->
-<div class="row justify-content-center"> 
+<div *ngIf="userlogin" class="row justify-content-center"> 
     <div class="col-sm-4">
         <div class="row">
             <div class="col-sm-12 d-flex align-items-center justify-content-between border p-2">
@@ -68,26 +68,30 @@
             </div>
         </div>
     </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarMenuLabel">LudoKing </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-group">
+                <li class="list-group-item"><a routerLink="/userhome"  class="text-decoration-none fs-5"><i class="bi bi-house"></i> Home</a></li>
+                <li class="list-group-item"><a routerLink="/referral"  class="text-decoration-none fs-5"><i class="bi bi-share"></i> Refer</a></li>
+                <li class="list-group-item"><a routerLink="/wallet"  class="text-decoration-none fs-5"><i class="bi bi-wallet2"></i> Wallet</a></li>
+                <li class="list-group-item"><a routerLink="/history"  class="text-decoration-none fs-5"><i class="bi bi-clock-history"></i> History</a></li>
+                <li class="list-group-item"><a routerLink="/withdraw"  class="text-decoration-none fs-5"><i class="bi bi-currency-dollar"></i> Withdrawal</a></li>
+                <li class="list-group-item"><a routerLink="/profile"  class="text-decoration-none fs-5"><i class="bi bi-person"></i> Profile</a></li>
+                <li class="list-group-item"><a routerLink="/legalterm"  class="text-decoration-none fs-5"><i class="bi bi-file-earmark-text-fill"></i> Legal Terms</a></li>
+                
+            </ul>
+        </div>
+        </div>
+
+        
 </div>
 
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
-<div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="sidebarMenuLabel">LudoKing</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-</div>
-<div class="offcanvas-body">
-    <ul class="list-group">
-        <li class="list-group-item"><a routerLink="/userhome"  class="text-decoration-none fs-5"><i class="bi bi-house"></i> Home</a></li>
-        <li class="list-group-item"><a routerLink="/referral"  class="text-decoration-none fs-5"><i class="bi bi-share"></i> Refer</a></li>
-        <li class="list-group-item"><a routerLink="/wallet"  class="text-decoration-none fs-5"><i class="bi bi-wallet2"></i> Wallet</a></li>
-        <li class="list-group-item"><a routerLink="/history"  class="text-decoration-none fs-5"><i class="bi bi-clock-history"></i> History</a></li>
-        <li class="list-group-item"><a routerLink="/withdraw"  class="text-decoration-none fs-5"><i class="bi bi-currency-dollar"></i> Withdrawal</a></li>
-        <li class="list-group-item"><a routerLink="/profile"  class="text-decoration-none fs-5"><i class="bi bi-person"></i> Profile</a></li>
-        <li class="list-group-item"><a routerLink="/legalterm"  class="text-decoration-none fs-5"><i class="bi bi-file-earmark-text-fill"></i> Legal Terms</a></li>
-    </ul>
-</div>
-</div>
 
 
 <!--User Menu End-->

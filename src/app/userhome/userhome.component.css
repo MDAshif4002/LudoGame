@@ -1,5 +1,5 @@
 .instruction{
-    height: 80px;
+    height: 100px;
     background-color: #002858;
     border: 3px solid #0088CC;
     border-radius: 10px;
@@ -8,6 +8,7 @@
     font-size: 16px;
     font-weight: bold;
     padding: 12px;
+    padding-top: 15px;
 }
 img{
     border: 2px solid #EAA812;

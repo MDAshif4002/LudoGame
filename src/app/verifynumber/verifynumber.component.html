@@ -9,14 +9,14 @@
                             <h6>Verify Phone Number</h6>
                         </div>
                         <div class="card-body">
-                            <form>
-                                <a class="btn btn-outline-dark"><i class="bi bi-arrow-left-circle"></i> Change Number</a>
-                            <input type="number" class="form-control" placeholder="######" required>
+                            <form (ngSubmit)="editform()">
+                                <a routerLink="/login" class="btn btn-outline-dark"><i class="bi bi-arrow-left-circle"></i> Change Number</a>
+                            <input type="number" name="otp" class="form-control" placeholder="######" required [(ngModel)]="regmodel.otp">
                             <button class="btn btn-outline-primary"><i class="bi bi-arrow-clockwise"></i>  Resend OTP</button><br><br>
                             <p class="mt-2 login">
                                 By Continuing, you agree to our <a class="anchor" routerLink="/legalterm">Legal Terms</a> and you are 18 years or older.
                             </p>
-                            <a routerLink="/userhome" class="btn btn-primary w-100">VERIFY</a>
+                            <button type="submit" (click)="loginbtn()" class="btn btn-primary w-100">VERIFY</button>
                             </form>
                         </div>
                     </div>

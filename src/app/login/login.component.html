@@ -2,28 +2,30 @@
     <div class="row mt-2">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header text-center bg-light">
-                            <h6>Login</h6>
+            <div class="card">
+                <div class="card-header text-center bg-light">
+                    <h6>Login</h6>
+                </div>
+                <div class="card-body mt-2">
+                    <form #loginForm="ngForm" (ngSubmit)="submitform()">
+                        <label>Mobile Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <input type="number" name="mobile" class="form-control"
+                                required placeholder="Enter phone number"
+                                [(ngModel)]="regmodel.mobile">
+                        </div> 
+                        <div class="mt-2 login">
+                            By Continuing, you agree to our 
+                            <a class="anchor" routerLink="/terms">Legal Terms</a> and you are 18 years or older.
                         </div>
-                        <div class="card-body mt-2">
-                            <label>Mobile Number</label>
-                            <div class="input-group">
-                                <span class="input-group-text">
-                                    <i class="fa-solid fa-phone"></i>
-                                </span>
-                                <input type="number" class="form-control" placeholder="Enter phone number">
-                                
-                            </div> 
-                            <div class="mt-2 login">
-                                By Continuing, you agree to our <a class="anchor" routerLink="/terms">Legal Terms</a> and you are 18 years or older.
-                            </div>
-                            <a routerLink="/verifynumber" class="btn btn-primary w-100 mt-2">GET OTP</a>
-                            <p class="text-center">Don't have an account? <a class="anchor" routerLink="/signup">Sign up</a></p>                        
-                        </div>
-                    </div>
+                        <button type="submit" class="btn btn-primary w-100 mt-2">GET OTP</button>
+                        <p class="text-center">Don't have an account? 
+                            <a class="anchor" routerLink="/signup">Sign up</a>
+                        </p>                        
+                    </form>
                 </div>
             </div>
         </div>

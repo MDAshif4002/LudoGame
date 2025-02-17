@@ -18,3 +18,10 @@
     color: white;
     margin-bottom: 30px;
 }
+.btn-info{
+    background-color: linear-gradient(75deg,#EB7F37,#C21D7B);
+    margin-top: -20px;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 30px;
+}

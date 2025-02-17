@@ -9,13 +9,13 @@
                             <h6>Sign Up</h6>
                         </div>
                         <div class="card-body mt-2">
-                              <form>
+                              <form (ngSubmit)="submitform()">
                                 <label>Full Name</label>
-                                <input type="text" class="form-control">
+                                <input type="text" name="name" class="form-control" [(ngModel)]="regmodel.name">
                                 <label>Mobile Number</label>
-                                <input type="text" class="form-control">
+                                <input type="number" name="mobile" class="form-control" [(ngModel)]="regmodel.mobile">
                                 <label>Refer Code (Optional)</label>
-                                <input type="text" class="form-control">
+                                <input type="text" name="" class="form-control">
                                 <div class="mt-2 login">
                                     By Continuing, you agree to our <a class="anchor" routerLink="/terms">Legal Terms</a> and you are 18 years or older.
                                 </div>
