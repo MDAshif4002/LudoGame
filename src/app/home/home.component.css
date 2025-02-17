@@ -25,6 +25,7 @@
 }
 @media(max-width:480px){
     .btn-danger{
+        width: 100%;
         display: flex;
     }
 }
