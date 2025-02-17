@@ -23,3 +23,8 @@
     position: sticky;
     bottom: 20px;
 }
+@media(max-width:480px){
+    .btn-danger{
+        display: flex;
+    }
+}
