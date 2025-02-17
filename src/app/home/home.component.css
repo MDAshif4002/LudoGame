@@ -25,7 +25,7 @@
 }
 @media(max-width:480px){
     .btn-danger{
-        width: 300px;
+        width: 500px;
         display: flex;
         justify-content: center;
         align-items: center;
