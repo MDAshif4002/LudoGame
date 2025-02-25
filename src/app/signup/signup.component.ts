@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Input } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { response } from 'express';
@@ -17,6 +18,7 @@ export class SignupComponent {
     name:"",
     email:"",
     mobile:"",
+    refferalcode:""
   }
 
   submitform(): void{
@@ -24,6 +26,7 @@ export class SignupComponent {
     formdata.append("name",this.regmodel.name);
     formdata.append("email",this.regmodel.email);
     formdata.append("mobile",this.regmodel.mobile);
+    formdata.append("refferalcode",this.regmodel.refferalcode);
 
 
     const apiurl = "http://localhost:43039/api/LudoKingAPI/registration";
@@ -37,5 +40,8 @@ export class SignupComponent {
       }
     });
   }
-
+  editAvatar(id:number):void{
+    this.router.navigate(["/profile",id]);
+  }
+  
 }

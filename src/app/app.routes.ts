@@ -22,6 +22,7 @@ import { SnakeAndLadderComponent } from './snake-and-ladder/snake-and-ladder.com
 import { ClassicludodetailComponent } from './classicludodetail/classicludodetail.component';
 import { SnakeladderdetailComponent } from './snakeladderdetail/snakeladderdetail.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { WithdrawscreenshotComponent } from './withdrawscreenshot/withdrawscreenshot.component';
 
 export const routes: Routes = [
     {path: "", component: HomeComponent},
@@ -30,14 +31,14 @@ export const routes: Routes = [
     {path: "signup", component: SignupComponent},
     {path: "support", component: SupportComponent},
     {path: "userhome", component: UserhomeComponent},
-    {path: "verifynumber", component: VerifynumberComponent},
+    {path: "verifynumber/:id", component: VerifynumberComponent},
+    {path: "profile", component: ProfileComponent},
     {path: "wallet", component: WalletComponent},
     {path: "dipositmoney", component: DipositmoneyComponent},
     {path: "paymentgateway", component: PaymentgatewayComponent},
     {path: "referral", component: ReferralComponent},
     {path: "history", component: HistoryComponent},
     {path: "withdraw", component: WithdrawComponent},
-    {path: "profile", component: ProfileComponent},
     {path: "legalterm", component: LegaltermComponent},
     {path: "terms", component: TermsComponent},
     {path: "classicludo", component: ClassicludoComponent},
@@ -47,6 +48,7 @@ export const routes: Routes = [
     {path:"classicludodetail",component:ClassicludodetailComponent},
     {path:"snakeladderdetail",component:SnakeladderdetailComponent},
     {path:"contactus",component:ContactusComponent},
+    {path:"withdrawscreenshot",component:WithdrawscreenshotComponent},
 ];
 
 @NgModule({

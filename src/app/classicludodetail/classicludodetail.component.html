@@ -18,20 +18,20 @@
                         <div class="d-flex flex-wrap justify-content-between align-items-center ">
                             <div class="d-flex align-items-center gap-2">
                                 <img src="avatar4.png" alt="" height="30px" width="30px">
-                                <span>&#64;User1</span>
+                                <span>{{name}}</span>
                             </div>
                             <div>
                                 <img src="vs.webp" alt="" height="40px" width="40px">
                             </div>
                             <div class="d-flex align-items-center gap-2">
-                                <span>&#64;User2</span>
+                                <span>{{name}}</span>
                                 <img src="avatar10.png" alt="" height="30px" width="30px">
                             </div>
                         </div>
 
                         <div class="d-flex flex-wrap justify-content-between align-items-center">
                             <div class="text-success">
-                                <i class="bi bi-currency-rupee"></i> 300
+                                <i class="bi bi-currency-rupee"></i> {{amount}}
                             </div>
                             <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#rules">
                                 <i class="bi bi-info-circle"></i>&nbsp;Rules
@@ -40,27 +40,26 @@
                         <hr>
 
                         
-                            <form action="">
-                                <!--<label for="" class="text-center">Send Room Code</label>-->
+                            <form (ngSubmit)="gameroomcode()">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Send Room Code">
-                                <span class="input-group-text text-light bg-dark btn btn-dark">Send</span>
+                                <input type="text" class="form-control" placeholder="Send Room Code" name="roomcode" [(ngModel)]="regmodel.roomcode" required>
+                                <button type="submit" class="input-group-text text-light bg-dark btn btn-dark">Send</button>
                             </div>
                             </form>
                         <hr>
 
                         <div>
-                            <form action="">
+                            <form (ngSubmit)="resultupdate()">
                                 Submit Result 
-                                <select class="form-control">
+                                <select class="form-control" name="userresult" [(ngModel)]="regmodel.userresult" required>
                                     <option value="">Select Result</option>
-                                    <option value="">I Won</option>
-                                    <option value="">I Lost</option>
-                                    <option value="">Game Cancelled</option>
-                                    <option value="">Player Not Joined</option>
+                                    <option>I Won</option>
+                                    <option>I Lost</option>
+                                    <option>Game Cancelled</option>
+                                    <option>Player Not Joined</option>
                                 </select>
                                 <label>Upload Your Screenshot</label>
-                                <input type="file" class="form-control">
+                                <input type="file" class="form-control" name="resultscreenshot" (change)="getmyfile($event)" required>
                                 <button class="btn btn-outline-dark d-flex mx-auto mt-3">Submit</button>
                             </form>
                         </div>

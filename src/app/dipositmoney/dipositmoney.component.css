@@ -51,3 +51,7 @@ label{
     height: 60px;
     margin-bottom: 40px;
 }
+
+.card{
+    border: none;
+}

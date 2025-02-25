@@ -4,12 +4,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
-import { response } from 'express';
 
-interface Users{
-  id:number;
-  photo:string;
+interface Users {
+  id: number;
+  photo: string;
+  name:string;
+  mobile:string;
 }
+
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -19,132 +21,151 @@ interface Users{
 })
 export class ProfileComponent implements OnInit {
 
+  data : Users[] = [];
+
   avatarUrl: string = 'avatar16.png'; // Default avatar
   avatars: string[] = [
-    'avatar1.png',
-    'avatar2.png',
-    'avatar3.png',
-    'avatar4.png', 
-    'avatar5.png',
-    'avatar6.png', 
-    'avatar7.png', 
-    'avatar8.png', 
-    'avatar9.png', 
-    'avatar10.png',
-    'avatar11.png', 
-    'avatar12.png', 
-    'avatar13.png', 
-    'avatar14.png', 
-    'avatar15.png',
-    'avatar16.png', 
-    'avatar17.png', 
-    'avatar18.png', 
-    'avatar19.png', 
-    'avatar20.png'
+    'avatar1.png', 'avatar2.png', 'avatar3.png', 'avatar4.png', 'avatar5.png',
+    'avatar6.png', 'avatar7.png', 'avatar8.png', 'avatar9.png', 'avatar10.png',
+    'avatar11.png', 'avatar12.png', 'avatar13.png', 'avatar14.png', 'avatar15.png',
+    'avatar16.png', 'avatar17.png', 'avatar18.png', 'avatar19.png', 'avatar20.png'
   ];
 
-  constructor(private el: ElementRef, private renderer: Renderer2, private route: Router, private router: Router, private http: HttpClient,private activeroute:ActivatedRoute) {}
-
   regmodel = {
-    id:"",
-    photo : ""
+    id: "",
+    photo: "",
+    name:"",
+    mobile:""
   };
-   id:string | null = null;
+
+
+  id: string | null = null;
+  name:string = "guest1234";
+  username:string|null=null;
+  mobile: string | null = null;
+
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private router: Router,
+    private http: HttpClient,
+    private activeroute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    // Check if an avatar is saved in localStorage
-    const savedAvatar = localStorage.getItem('selectedAvatar');
-    if (savedAvatar) {
-      this.avatarUrl = savedAvatar;
+    // ✅ Retrieve ID from URL or LocalStorage
+    this.id = this.activeroute.snapshot.paramMap.get("id") || localStorage.getItem("userId");
+
+    if (!this.id) {
+      Swal.fire("Error", "User ID not found! Redirecting to home...", "error").then(() => {
+        this.router.navigate(["/home"]);
+      });
+      return;
     }
 
-    const avatarContainer: HTMLElement | null = this.el.nativeElement.querySelector("#avtar-container");
+    console.log("✅ Fetching data for ID:", this.id);
+
+
+    const storedUsername = localStorage.getItem("name");
+    this.name = storedUsername ? `@${storedUsername}` : "@Guest"; 
+
+    // ✅ API Call to Fetch User Data
+    const apiurl = `http://localhost:43039/api/LudoKingAPI/registrationshow/${this.id}`;
+
+    this.http.get<Users>(apiurl).subscribe({
+      next: (response) => {
+        this.regmodel.photo = response.photo;
+        this.avatarUrl = response.photo ? response.photo : this.avatarUrl;
+        this.regmodel.name = response.name;
+        this.mobile = response.mobile;
+        console.log("✅ User Data Fetched Successfully:", response);
+
+        //userid generate start
+        const userName = response?.name ?? 'guest'; 
+        const userid = userName.toString().toLowerCase().trim().replace(/\s+/g, ''); 
+
+        let userKey = `randomNumber_${this.id}`;
+          let savedRandomNumber = localStorage.getItem(userKey);
+
+          if (!savedRandomNumber) {
+            savedRandomNumber = Math.floor(1000 + Math.random() * 9000).toString();
+            localStorage.setItem(userKey, savedRandomNumber);
+          }
+
+          this.name = `@${userid}${savedRandomNumber}`;
+         //userid generate end
+
+  
+      },
+      error: (err) => {
+        Swal.fire("Error", "Failed to load user data!", "error");
+        console.error("❌ API Fetch Error:", err);
+      }
+    });
+
+    // ✅ Avatar selection logic
+    const avatarContainer: HTMLElement | null = this.el.nativeElement.querySelector("#avatar-container");
 
     if (avatarContainer) {
       this.renderer.listen(avatarContainer, "click", (event: Event) => {
         const target = event.target as HTMLElement;
-
-        // Ensure target is an <img> element
         if (target instanceof HTMLImageElement) {
-          // Remove 'avtar-active' class from all images
-          const images: NodeListOf<HTMLImageElement> = avatarContainer.querySelectorAll("img");
-          images.forEach(img => this.renderer.removeClass(img, "avtar-active"));
-
-          // Add 'avtar-active' class to the clicked image
-          this.renderer.addClass(target, "avtar-active");
-
-          // Save the selected avatar to localStorage
-          this.avatarUrl = target.src;
-          localStorage.setItem('selectedAvatar', target.src);
-
-          console.log("Class added to:", target.src);
+          this.changeAvatar(target.src);
         }
       });
     }
+  }
 
-    this.id = this.activeroute.snapshot.paramMap.get("id");
+  /** ✅ Change Avatar and Update in Database */
+  changeAvatar(newAvatar: string): void {
+    if (!this.id) {
+      Swal.fire("Error", "Invalid User ID", "error");
+      return;
+    }
 
-    const apiurl = "http://localhost:43039/api/LudoKingAPI/registrationshow/"+this.id;
+    this.avatarUrl = newAvatar;
+    localStorage.setItem('selectedAvatar', newAvatar);
 
-    this.http.get<Users>(apiurl).subscribe({
-      next:(response)=>{
-        this.regmodel.photo = response.photo;
+    let formdata = new FormData();
+    formdata.append("id", this.id);
+    formdata.append("photo", newAvatar); // ✅ Sending avatar image name to backend
+
+    const apiurl = "http://localhost:43039/api/LudoKingAPI/setimg";
+    
+    this.http.put(apiurl, formdata).subscribe({
+      next: (response) => {
+        console.log("✅ Avatar Updated in Database:", response);
+        Swal.fire("Success", "Your avatar has been updated!", "success");
       },
-      error:(err)=>{
-
+      error: (err) => {
+        Swal.fire("Error", "Failed to update avatar!", "error");
+        console.error("❌ Avatar Update Error:", err);
       }
     });
   }
-
   
-  myfile: File | null = null;
 
-  getmyfile(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.myfile = input.files[0];
-    }
-  }
-
-  editAvatar():void{
+  updateform():void{
     let formdata = new FormData();
-    console.log("id",this.id);
-    console.log("MyFile",this.myfile);
-    
     formdata.append("id",this.id?this.id:"");
-    if(this.myfile)
-    {
-      formdata.append("photo",this.myfile);
-    }  
-    const apiurl = "http://localhost:43039/api/LudoKingAPI/setimg";
+    formdata.append("name",this.regmodel.name);
+
+    const apiurl ="http://localhost:43039/api/LudoKingAPI/updateuser";
+
     this.http.put(apiurl,formdata).subscribe({
       next:(response)=>{
-        console.log("dyfvhcj",response);
-        Swal.fire("Updated Your Profile Image").then(()=>{
-          this.router.navigate(["/userhome"]);
+        Swal.fire("Update Your Username...").then(()=>{
+          this.router.navigate(["/profile"]);
         });
       },
       error:(err)=>{
-        Swal.fire("API Called Failed");    
-        console.log(err)
+        Swal.fire("API Call Failed");
       }
     });
-    
   }
 
-
-  logout() {
+  logout(): void {
     localStorage.removeItem("userlogin");
-    this.route.navigate(["/home"]);
+    this.router.navigate(["/home"]);
   }
-
-  setAvatar(newAvatar: string) {
-    this.avatarUrl = newAvatar;
-    // Save selected avatar to localStorage
-    localStorage.setItem('selectedAvatar', newAvatar);
-  }
-
-
 }
-
-

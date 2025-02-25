@@ -1,7 +1,7 @@
 
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute,Router} from '@angular/router';
 
 @Component({
   selector: 'app-ludogame',
@@ -13,7 +13,7 @@ import { ActivatedRoute} from '@angular/router';
 export class LudogameComponent implements OnInit {
   players!: number;  // Add the non-null assertion operator (!)
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,private router:Router) {}
 
   ngOnInit(): void {
     // Capture the 'players' parameter from the route
@@ -23,5 +23,8 @@ export class LudogameComponent implements OnInit {
       // Print the value to the console
       console.log(`Players: ${this.players}`);
     });
+  }
+  editAvatar(id:number):void{
+    this.router.navigate(["/profile",id]);
   }
 }

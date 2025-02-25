@@ -11,6 +11,10 @@
 .allbtn{
     background-color: #17A2B8;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 .hbtn:hover{
     background-color: gray;
 }

@@ -1,0 +1,11 @@
+.btn-dark{
+    height: 30px; 
+    line-height: 1; 
+    padding: 5px 12px; 
+    border-width: 1px; 
+    font-size: 14px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
